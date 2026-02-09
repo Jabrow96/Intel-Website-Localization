@@ -1,3 +1,61 @@
+// Automatically detect RTL languages and apply correct direction
+document.addEventListener('DOMContentLoaded', () => {
+  const htmlElement = document.getElementById('html-element');
+  
+  // List of RTL language codes
+  const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'yi', 'ji', 'iw', 'ku'];
+  
+  // Function to detect RTL characters in text
+  // Returns true if the text contains significant RTL characters
+  function hasRTLCharacters(text) {
+    // RTL character ranges:
+    // Arabic: \u0600-\u06FF
+    // Hebrew: \u0590-\u05FF
+    // Farsi/Persian: included in Arabic range
+    // Urdu: mostly overlaps with Arabic
+    const rtlCharPattern = /[\u0590-\u08FF]/g;
+    const matches = text.match(rtlCharPattern) || [];
+    // If more than 10% of characters are RTL, consider it RTL content
+    return matches.length > text.length * 0.1;
+  }
+  
+  // Function to set the correct direction
+  function setPageDirection() {
+    // First check lang attribute
+    const currentLang = htmlElement.getAttribute('lang') || 'en';
+    const langCode = currentLang.split('-')[0].toLowerCase();
+    
+    if (rtlLanguages.includes(langCode)) {
+      htmlElement.setAttribute('dir', 'rtl');
+      return;
+    }
+    
+    // If lang attribute doesn't indicate RTL, check actual page content
+    const pageText = document.body.innerText || '';
+    if (hasRTLCharacters(pageText)) {
+      htmlElement.setAttribute('dir', 'rtl');
+    } else {
+      htmlElement.setAttribute('dir', 'ltr');
+    }
+  }
+  
+  // Set initial direction
+  setPageDirection();
+  
+  // Watch for changes (e.g., when Google Translate modifies the page)
+  const observer = new MutationObserver((mutations) => {
+    // Debounce to avoid checking too frequently
+    clearTimeout(observer.checkTimeout);
+    observer.checkTimeout = setTimeout(setPageDirection, 100);
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    characterData: true
+  });
+});
+
 // Map vertical wheel to horizontal scroll for the timeline
 // More robust: normalize deltaMode, check if horizontal scrolling is available, and use scrollBy for smoother control
 
