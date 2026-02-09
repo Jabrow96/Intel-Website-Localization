@@ -114,8 +114,10 @@ body{
   color:var(--muted);
   font-size:.95rem;
   transition:max-height .18s ease, opacity .18s ease, transform .18s ease, margin .18s ease, padding .18s ease;
-  max-height:4.5em; /* roughly two lines */
+  max-height:7em; /* allow more lines for wrap text */
   overflow:hidden;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
 }
 
 .milestone-card:hover .milestone-more,
@@ -147,6 +149,7 @@ body{
   .milestone{flex:1 1 auto}
   .milestone-card{display:block}
   .milestone-img{height:220px;object-fit:contain}
+  .milestone-card .milestone-summary{max-height:none;overflow:visible;}
   /* On small screens keep the blue background so details remain clearly visible */
   .milestone-more{
     position:relative;
@@ -176,6 +179,7 @@ body{
   .milestone-img{height:190px}
   .milestone-card{padding:.9rem}
   .milestone-title{font-size:1rem}
+  .milestone-card .milestone-summary{max-height:7.5em;}
 }
 
 /* Small phones */
@@ -190,6 +194,7 @@ body{
   .milestone-card{padding:.6rem;border-radius:10px}
   .milestone-img{height:160px}
   .milestone-title{font-size:.98rem}
+  .milestone-card .milestone-summary{max-height:8em;}
   /* On very small screens keep details hidden until user taps the card */
   .milestone-more{
     background:linear-gradient(180deg, var(--intel-blue-700), var(--intel-blue));
