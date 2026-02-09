@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUarbnLpmA+a5vNaVOcEYs3f0nqUm46tDQH+qqvhVeQodQ5S3fB" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -149,48 +153,74 @@
     </div>
   </section> 
   
-  <!-- 3-Column Content Section -->
-  <section>
-    <div>
-      
-      <!-- Column 1 -->
-      <div>
-        <h2>RISE Strategy</h2>
-        <p>
-          Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
-          Intel sets ambitious 2030 goals, including driving industry-wide 
-          progress on climate action, water stewardship, and waste reduction.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
-      </div>
+  <!-- 3-Column Content Section with Bootstrap Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        
+        <!-- Column 1: RISE Strategy -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div>
+            <!-- Heading with Icon -->
+            <h2 class="h4 mb-3">
+              <i class="bi bi-check-circle text-success me-2"></i>RISE Strategy
+            </h2>
+            
+            <!-- Content -->
+            <p class="text-muted">
+              Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+              Intel sets ambitious 2030 goals, including driving industry-wide 
+              progress on climate action, water stewardship, and waste reduction.
+            </p>
+            
+            <!-- Learn More Link -->
+            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+          </div>
+        </div>
 
-      <!-- Column 2 -->
-      <div>
-        <h2>Commitment</h2>
-        <p>
-          In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
-          (Scope 1 and 2) by 2040. This commitment builds on decades of 
-          environmental initiatives and partnerships across the semiconductor 
-          industry.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
-      </div>
+        <!-- Column 2: Commitment -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div>
+            <!-- Heading with Icon -->
+            <h2 class="h4 mb-3">
+              <i class="bi bi-globe text-primary me-2"></i>Commitment
+            </h2>
+            
+            <!-- Content -->
+            <p class="text-muted">
+              In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+              (Scope 1 and 2) by 2040. This commitment builds on decades of 
+              environmental initiatives and partnerships across the semiconductor 
+              industry.
+            </p>
+            
+            <!-- Learn More Link -->
+            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+          </div>
+        </div>
 
-      <!-- Column 3 -->
-      <div>
-        <h2>Water &amp; Waste</h2>
-        <p>
-          Intel conserves billions of gallons of water annually and 
-          collaborates with local communities to restore watersheds.
-          Intel also upcycles and recycles materials to reduce waste and 
-          advance a circular economy.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
-      </div>
+        <!-- Column 3: Water & Waste -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div>
+            <!-- Heading with Icon -->
+            <h2 class="h4 mb-3">
+              <i class="bi bi-droplet text-info me-2"></i>Water &amp; Waste
+            </h2>
+            
+            <!-- Content -->
+            <p class="text-muted">
+              Intel conserves billions of gallons of water annually and 
+              collaborates with local communities to restore watersheds.
+              Intel also upcycles and recycles materials to reduce waste and 
+              advance a circular economy.
+            </p>
+            
+            <!-- Learn More Link -->
+            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+          </div>
+        </div>
 
+      </div>
     </div>
   </section>
 
@@ -199,6 +229,8 @@
     <h2>Subscribe to our Newsletter</h2>
     <!-- Add form here -->
   </section>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDzq9wAadnDiGWMnC4ky6U4gv1c00Xul0KEsged0ApLssksZOigjiKfKEOQ" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 </html>

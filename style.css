@@ -213,3 +213,37 @@ p{line-height:1.5}
 /* Last note on page */
 body > p{padding:1rem;text-align:center;color:var(--muted);margin:0 0 2rem 0}
 
+/* Three-column Bootstrap grid section */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col-12,
+.col-md-6,
+.col-lg-4 {
+  padding: 0;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Tablets: 2 columns */
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+  }
+}
+
+/* Desktops: 3 columns */
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 calc(33.333% - 0.667rem);
+    max-width: calc(33.333% - 0.667rem);
+  }
+}
+
